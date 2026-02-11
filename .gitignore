@@ -1,0 +1,17 @@
+# editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# local env files
+.env
+
+server/firebaseKey.json
+
+REQS.md
