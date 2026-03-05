@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { db } from "../config/firebase"; 
 import { 
     collection, 
@@ -28,7 +27,6 @@ function SalesPage() {
     const [stickers, setStickers] = useState<Sticker[]>([]);
     const [cart, setCart] = useState<CartItem[]>([]);
     const [paymentMethod, setPaymentMethod] = useState("Cash");
-    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchStickers = async () => {

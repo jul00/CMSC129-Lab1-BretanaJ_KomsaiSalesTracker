@@ -1,70 +1,138 @@
-# Getting Started with Create React App
+Komstickr: Sticker Sales Management System
+===========================================
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web application for tracking and managing inventory and sales of Komsai.Org stickers.
+Built uisng **FERN (Firebase, Express, React, Node.js)**.
 
-## Available Scripts
+Features
+=========
+- Add, update, and delete stickers (CRUD)
+- Add multiple stickers to a cart
+- Automatic total price calculation
+- Payment method selection
+- Transaction history
+    - View total revenue within range of dates
+    - Overall total revenue, total revenue for individual payment methods
+- Firebase Firestore database integration
 
-In the project directory, you can run:
+Tech Stack
+===========
 
-### `npm start`
+## Frontend
+- React (TypeScript)
+- React Hooks
+- Tailwind
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Backend
+- Node.js
+- Express.js
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Database
+- Firebase Firestore
 
-### `npm test`
+Installation Guide
+===================
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Clone the repository
+git clone https://github.com/jul00/CMSC129-Lab1-BretanaJ_KomsaiSalesTracker.git
+cd CMSC129-Lab1-BretanaJ_KomsaiSalesTracker
 
-### `npm run build`
+## Frontend
+cd client
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Backend
+cd server
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup Environment Variables
+Create a .env file inside the **server** folder:
+PORT = 5000
+FIREBASE_API_KEY=your_key
+FIREBASE_AUTH_DOMAIN=your_domain
+FIREBASE_PROJECT_ID=your_project_id
+*(Replace with Firebase config values.)*
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Run the application (Back and front end)
+cd client
+npm run dev
 
-### `npm run eject`
+Server runs on:
+http://localhost:5000
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+App runs on: 
+http://localhost:3000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Usage Guide
+============
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Adding Stickers
+1. Navigate to the inventory page
+2. Enter sticker name, price, and stock
+3. Click **Add Sticker**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Making a Sale
+1. Go to the Sales page
+2. Click stickers to add to cart
+3. Adjust quantities if needed
+4. Select payment method
+5. Confirm transaction
 
-## Learn More
+The system will:
+- Calculate total automatically
+- Save transaction in database
+- Update sticker stock
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+API Documentation
+==================
+Base URL: 
+http://localhost:5000/api
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Sticker Endpoints
+==================
 
-### Code Splitting
+## GET /stickers
+Returns all stickers.
+[
+  {
+    "id": "abc123",
+    "name": "Anime Sticker",
+    "price": 50,
+    "stock": 20
+  }
+]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## POST /stickers
+Creates a new sticker.
+Request body:
+{
+  "name": "Cute Cat",
+  "price": 30,
+  "stock": 100
+}
 
-### Analyzing the Bundle Size
+## PUT /stickers/:id
+Updates a sticker.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## DELETE /stickers/:id
+Deletes a sticker.
 
-### Making a Progressive Web App
+Sales Endpoints
+================
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## POST /sales
+Creates a transaction.
+Request body:
+{
+  "items": [
+    {
+      "id": "abc123",
+      "quantity": 2
+    }
+  ],
+  "paymentMethod": "Cash",
+  "totalAmount": 100
+}
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## GET /sales
+Returns all transactions.

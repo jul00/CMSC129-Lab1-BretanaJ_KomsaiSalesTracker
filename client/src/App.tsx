@@ -17,7 +17,7 @@ const App: React.FC = () => {
             <button style={{ marginRight: "10px" }}>Sales Page</button>
           </Link>
           <Link to="/form">
-            <button style={{ marginRight: "10px" }}>Add Sticker</button>
+            <button style={{ marginRight: "10px" }}>Sticker Inventory</button>
           </Link>
           <Link to="/transactions">
             <button>Transactions</button>
