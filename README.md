@@ -21,7 +21,7 @@ Tech Stack
 ## Frontend
 - React (TypeScript)
 - React Hooks
-- Tailwind
+- CSS
 
 ## Backend
 - Node.js
@@ -54,7 +54,7 @@ FIREBASE_PROJECT_ID=your_project_id
 *(Replace with Firebase config values.)*
 
 ## Run the application (Back and front end)
-cd client
+cd ..
 npm run dev
 
 Server runs on:

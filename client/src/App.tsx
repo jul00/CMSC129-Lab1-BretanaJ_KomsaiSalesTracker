@@ -8,21 +8,24 @@ import "./App.css";
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <div id="main-wrapper" style={{ padding: "20px" }}>
-        <h1>Komstickr</h1>
+      <div id="main-wrapper">
+        <div id="navbar">
+          <h1>Komstickr</h1>
 
-        {/* Navigation Buttons */}
-        <div style={{ marginBottom: "20px" }}>
-          <Link to="/">
-            <button style={{ marginRight: "10px" }}>Sales Page</button>
-          </Link>
-          <Link to="/form">
-            <button style={{ marginRight: "10px" }}>Sticker Inventory</button>
-          </Link>
-          <Link to="/transactions">
-            <button>Transactions</button>
-          </Link>
+          {/* Navigation Buttons */}
+          <div id="navbuttons">
+            <Link to="/">
+              <button id="navbutton">Sales Page</button>
+            </Link>
+            <Link to="/form">
+              <button id="navbutton">Sticker Inventory</button>
+            </Link>
+            <Link to="/transactions">
+              <button id="navbutton">Transactions</button>
+            </Link>
+          </div>
         </div>
+        
 
         {/* Routes */}
         <Routes>

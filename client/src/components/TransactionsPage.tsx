@@ -1,5 +1,6 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import { db } from "../config/firebase";
+import '../App.css'
 import { 
   collection, getDocs, query, orderBy, deleteDoc, doc, updateDoc, writeBatch, increment, DocumentData, Timestamp 
 } from "firebase/firestore";
@@ -129,7 +130,7 @@ function TransactionsPage() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div id="component-wrapper">
       <h3>Transaction History</h3>
 
       {sales.length === 0 ? (
@@ -174,11 +175,11 @@ function TransactionsPage() {
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
               <tr>
-                <th style={{ border: "1px solid black", padding: "8px" }}>Time</th>
-                <th style={{ border: "1px solid black", padding: "8px" }}>Payment Method</th>
+                <th style={{ border: "1px solid black", padding: "8px", width: "12rem" }}>Time</th>
+                <th style={{ border: "1px solid black", padding: "8px", width: "7rem" }}>Payment Method</th>
                 <th style={{ border: "1px solid black", padding: "8px" }}>Total</th>
                 <th style={{ border: "1px solid black", padding: "8px" }}>Stickers Sold</th>
-                <th style={{ border: "1px solid black", padding: "8px" }}>Actions</th>
+                <th style={{ border: "1px solid black", padding: "8px", width: "4rem" }}>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -191,7 +192,7 @@ function TransactionsPage() {
                     <td style={{ border: "1px solid black", padding: "8px" }}>
                       {sale.saleTime?.toDate().toLocaleString() || "-"}
                     </td>
-                    <td style={{ border: "1px solid black", padding: "8px" }}>
+                    <td style={{ border: "1px solid black", padding: "8px", width: "5rem" }}>
                       <input
                         type="text"
                         value={sale.paymentMethod}

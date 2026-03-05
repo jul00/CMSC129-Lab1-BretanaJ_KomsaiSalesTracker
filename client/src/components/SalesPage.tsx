@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { db } from "../config/firebase"; 
+import '../App.css'
 import { 
     collection, 
     getDocs, 
@@ -130,7 +131,7 @@ function SalesPage() {
     }        
 
     return (
-        <div style={{ padding: "20px"}}>
+        <div id="component-wrapper">
 
             <h3>Available Stickers</h3>
             <div style={{

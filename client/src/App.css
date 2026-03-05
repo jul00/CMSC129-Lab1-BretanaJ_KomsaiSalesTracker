@@ -1,3 +1,35 @@
 #main-wrapper {
-    margin: 20px;
+    /* margin: 20px; */
+}
+
+#navbar {
+    padding: .5rem 2.5rem;
+    display: flex;
+    flex-direction: row;
+    background-color:blueviolet;
+}
+
+#navbuttons {
+    margin-bottom: "20px";
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 1rem;
+}
+
+#navbuttons button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+}
+#navbuttons button:hover {
+    text-decoration: underline;
+}
+
+#component-wrapper {
+    margin: 2.5rem;
 }

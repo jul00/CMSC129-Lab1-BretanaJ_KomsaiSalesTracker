@@ -1,5 +1,6 @@
 import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import { db } from "../config/firebase";
+import '../App.css'
 import {
   collection,
   getDocs,
@@ -134,9 +135,9 @@ const StickerManager: React.FC = () => {
     };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div id="component-wrapper">
       <h2>Add Sticker</h2>
-      <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
+      <form onSubmit={handleSubmit} style={{ marginBottom: "20px", display: "flex", gap: ".5rem" }}>
         <input
           placeholder="Code (2-4 letters)"
           value={form.code}
@@ -163,7 +164,7 @@ const StickerManager: React.FC = () => {
           onChange={handleChange("stock")}
           required
         />
-        <button type="submit">Add</button>
+        <button type="submit" style={{ width: "5rem", cursor: "pointer" }}>Add</button>
       </form>
 
       <h2>Sticker Inventory</h2>
